@@ -12,6 +12,7 @@
 <ion-content>
    <ion-item *ngIf="isDriver()" routerLink="list-requests">רשימת הבקשות</ion-item>
    <ion-item *ngIf="isDriver()" routerLink="travelsOfDriver">רשימת הנסיעות שלי</ion-item>
+   <ion-item *ngIf="!isDriver()" routerLink="add-request">רשימת הנסיעות</ion-item>
    <ion-item *ngIf="!isDriver()" routerLink="add-request">הוסף בקשה</ion-item>
    <!-- <router-outlet></router-outlet> -->
 </ion-content>
