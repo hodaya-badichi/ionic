@@ -18,6 +18,9 @@ travelsArr:Travels[]=new Array();
     // this.travelsArr.push(new Travels(3,2,"123456782",new Date,"",""));
 
    }
+   getTravelsById(travelId:number):Travels{
+     return this.travelsArr.find(element=>element.TravleCode==travelId);
+   }
   getTravelsOfDriver(userId:string):Travels[]{
     return this.travelsArr.filter(element=>element.UserId=userId);
   }

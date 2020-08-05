@@ -10,9 +10,25 @@ import { element } from 'protractor';
 export class RequestService {
 
 requestsArr:Request[]=new Array();
+
   constructor(private http: HttpClient) { 
     this.requestsArr.push(new Request(1,"123456789","bneybrak","jerusalem",new Date(),"dst","csa",null));
     this.requestsArr.push(new Request(2,"123456780","roshhain","jerusalem",new Date(),"skmq","sdav",null));
+  }
+ private getCode():number{
+   let max:number=0;
+   this.requestsArr.forEach(element => {
+     max=element.RequestCode>max?element.RequestCode:max;
+   });
+   return max;
+  }
+  AddUserToTravel(re:Request,UserId:string):void{
+      let r:Request=new Request(this.getCode(),UserId,re.SourceAddress,re.DestinationAddress
+      ,re.Date,re.Frequency,re.Summarry,re.TravelCode);
+      this.requestsArr.push(r);
+  }
+  getRequestOfTheTravel(tarvelCode:number):Request{
+    return this.requestsArr.find(element=>element.TravelCode&&element.TravelCode==tarvelCode);
   }
   getAllRequests():Request[]{
     return this.requestsArr;

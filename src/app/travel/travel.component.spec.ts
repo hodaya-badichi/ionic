@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { TravelsOfDriverComponent } from './travels-of-driver.component';
+import { TravelComponent } from './travel.component';
 
-describe('TravelsOfDriverComponent', () => {
-  let component: TravelsOfDriverComponent;
-  let fixture: ComponentFixture<TravelsOfDriverComponent>;
+describe('TravelComponent', () => {
+  let component: TravelComponent;
+  let fixture: ComponentFixture<TravelComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TravelsOfDriverComponent ],
+      declarations: [ TravelComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(TravelsOfDriverComponent);
+    fixture = TestBed.createComponent(TravelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

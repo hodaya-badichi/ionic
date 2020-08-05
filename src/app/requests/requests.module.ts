@@ -10,7 +10,8 @@ import { RequestsPage } from './requests.page';
 import { ListRequestComponent } from '../list-request/list-request.component';
 import { TravelsOfRequestComponent } from '../travels-of-request/travels-of-request.component';
 import { AddRequestComponent } from '../add-request/add-request.component';
-import { TravelsOfDriverComponent } from '../travels-of-driver/travels-of-driver.component';
+import { ListTravelsComponent } from '../list-travels/list-travels.component';
+import { TravelComponent } from '../travel/travel.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { TravelsOfDriverComponent } from '../travels-of-driver/travels-of-driver
     IonicModule,
     RequestsPageRoutingModule
   ],
-  declarations: [RequestsPage,ListRequestComponent,TravelsOfRequestComponent,AddRequestComponent,TravelsOfDriverComponent]
+  declarations: [RequestsPage,ListRequestComponent,TravelsOfRequestComponent,AddRequestComponent,ListTravelsComponent,
+  TravelComponent]
 })
 export class RequestsPageModule {}
