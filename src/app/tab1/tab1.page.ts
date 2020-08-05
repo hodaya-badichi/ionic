@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Driver } from '../driver';
 import { ActionSheetController, AlertController } from '@ionic/angular';
+import { getMaxListeners } from 'process';
 //import { AlertController } from '@ionic/angular';
 
 
@@ -19,12 +19,23 @@ export class Tab1Page {
   
   
   }
+  getMax():number{
+    return 5;
+  }
   async add() {
 
   
     const alert = await this.alertController.create({
-      header: 'Confirm!',
-      message: 'Message <strong>text</strong>!!!',
+      header: 'הצטרף',
+      message:'',
+      inputs:[
+        {
+          name: 'number',
+          type: 'number',
+          min: 1,
+          max:this.getMax(),
+        }
+      ],
       buttons: [
         {
           text: 'Cancel',

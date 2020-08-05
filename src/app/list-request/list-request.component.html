@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> list-request</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list *ngFor="let item of requests">
+
+  <ion-item routerLink="Travels/{{item.RequestCode}}">{{item.Date}}: {{item.SourceAddress}} {{item.DestinationAddress}}</ion-item>
+</ion-list>
+</ion-content>

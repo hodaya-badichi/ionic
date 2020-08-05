@@ -6,31 +6,33 @@
     <ion-title>Register</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  <form #myform="ngForm" (ngSubmit)="onSubmit(myform.value)">
+  <form #myform="ngForm" (ngSubmit)="onSubmit(myform)">
     <ion-item lines="full">
       <ion-label position="floating">Id</ion-label>
-      <ion-input type="text"  name="id" ngModel required></ion-input>
+      <ion-input type="text"  name="UserId" ngModel required></ion-input>
     </ion-item>
     <ion-item lines="full">
-      <ion-label position="floating">First name</ion-label>
-      <ion-input type="text"  name="firstName" ngModel required></ion-input>
+      <ion-label position="floating">FirstName</ion-label>
+      <ion-input type="text"  name="UserFirstName" ngModel required></ion-input>
     </ion-item>
 
     <ion-item lines="full">
-      <ion-label position="floating">Last name</ion-label>
-      <ion-input type="text"  name="lastName" ngModel required></ion-input>
+      <ion-label position="floating">LastName</ion-label>
+      <ion-input type="text"  name="UserLastName" ngModel ></ion-input>
     </ion-item>
 
     <ion-item lines="full">
       <ion-label position="floating">Email</ion-label>
-      <ion-input type="text"  name="email" ngModel required></ion-input>
+      <ion-input type="text"  name="UserMail" ngModel required></ion-input>
     </ion-item>
-
+    <ion-item lines="full">
+      <ion-label position="floating">Phone</ion-label>
+      <ion-input type="text"  name="UserPhone" ngModel required></ion-input>
+    </ion-item>
     <ion-item lines="full">
       <ion-label position="floating">Password</ion-label>
-      <ion-input type="password"  name="password" ngModel required></ion-input>
+      <ion-input type="password"  name="UserPassword" ngModel required></ion-input>
     </ion-item>
 
     <ion-row>

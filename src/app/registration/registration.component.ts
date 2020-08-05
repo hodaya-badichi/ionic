@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { DriversService } from '../servises/drivers.service';
 import { variable } from '@angular/compiler/src/output/output_ast';
+import { UserService } from '../servises/user.service';
 
 @Component({
   selector: 'app-registration',
@@ -11,21 +11,18 @@ import { variable } from '@angular/compiler/src/output/output_ast';
 export class RegistrationComponent implements OnInit {
 
 myform:FormGroup;
-  yes:boolean=false;
-  constructor(public formBuilder:FormBuilder,private driversService:DriversService) { 
+  constructor(public formBuilder:FormBuilder,private userService:UserService) { 
     this.myform=formBuilder.group({
-      id:['',Validators.required],
-      firstName:['',Validators.required], 
-      lastName:['',Validators.required], 
-      email:['',Validators.email],
-      password:['',Validators.required]
+      UserId:['',Validators.required],
+      UserFirstName:['',Validators.required], 
+      UserLastName:[''], 
+      UserMail:['',Validators.email],
+      UserPhone:['',Validators.required],
+      UserPassword:['',Validators.required]
     });
   }
-  onSubmit(form) {
-  //services.savanewdriver(form.value)
-  //
- 
-  this.driversService.register(form);  
+  onSubmit(form:FormGroup) {
+    this.userService.register(form.value);  
    }
 
   ngOnInit() {

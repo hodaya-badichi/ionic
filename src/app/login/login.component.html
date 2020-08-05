@@ -18,14 +18,16 @@
         <ion-label position="floating">Password</ion-label>
         <ion-input type="password"  name="password" ngModel required></ion-input>
       </ion-item>
-  
+      <ion-item>
+        <ion-label>Are you driver?</ion-label>
+        <ion-checkbox (click)="Checked()"></ion-checkbox>
+      </ion-item>
       <ion-row>
         <ion-col>
+           <!-- routerLink="requests" -->
           <ion-button type="submit" color="danger" expand="block">Sign In</ion-button>
-       
-    
           <a routerLink="forgot-password" class="small-text">Forgot Password?</a>
-       
+          
           <router-outlet></router-outlet>
         </ion-col>
       </ion-row>

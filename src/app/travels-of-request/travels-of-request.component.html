@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{request.Date}} </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item >{{request.Summarry}}</ion-item>
+  <!-- <h2>Travel list for this request</h2>
+
+      <ion-tab-bar>
+      
+      <ion-label style="color: black;">{{getName(item.UserId)}}</ion-label>
+      
+     
+     
+        <ion-tab-button >
+          <ion-icon (click)="Add(item)" name="add-circle-outline"></ion-icon>
+          <ion-label>Add</ion-label>
+       </ion-tab-button>  
+        <ion-tab-button >
+           <ion-icon (click)="Del(item)" name="trash-outline"></ion-icon>
+           <ion-label>Del</ion-label>
+        </ion-tab-button>
+        
+           <ion-label>{{getCnt(item)}}/{{item.NumOfPassengers}}</ion-label>
+  </ion-tab-bar>
+     
+
+ 
+    
+  </ion-list> -->
+  <!-- <ion-input type="number" [(ngModel)]="numsOfPassengers" ></ion-input> -->
+  <ion-button (click)="AddTravelOfThisRequest()"  expand="block">צור נסיעה חדשה</ion-button>
+  <ion-button routerLink="travelOfDriver/{{request.RequestCode}}" expand="block">צרף לנסיעה קיימת</ion-button>
+</ion-content>

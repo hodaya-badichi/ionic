@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
-import { FormComponent } from '../form/form.component';
 
 const routes: Routes = [
   {
@@ -51,17 +50,30 @@ const routes: Routes = [
           
         ]
       },
+      {
+        path: 'requests',
+        children: [
+          
+          {
+            path: '',            
+            loadChildren: () =>
+              import('../requests/requests.module').then(m => m.RequestsPageModule)
+          }
+        
+          
+        ]
+      },
     
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/taxi',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/taxi',
     pathMatch: 'full'
   }
 ];

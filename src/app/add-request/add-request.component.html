@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> Add-request</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #myform="ngForm" (ngSubmit)="onSubmit(myform)">
+    <ion-item lines="full">
+      <ion-label position="floating">Source Address</ion-label>
+      <ion-input type="text"  name="SourceAddress" ngModel required></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Destination Address</ion-label>
+      <ion-input type="text"  name="DestinationAddress" ngModel required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Date</ion-label>
+      <ion-input type="Date"  name="Date" ngModel ></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Frequency</ion-label>
+      <ion-input type="text"  name="Frequency" ngModel required></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Summarry</ion-label>
+      <ion-textarea name="Summarry" ngModel required></ion-textarea>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="danger" expand="block">Sign Up</ion-button>
+      </ion-col>
+    </ion-row>
+    
+  </form>
+</ion-content>
+
