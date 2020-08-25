@@ -12,8 +12,18 @@ export class RequestService {
 requestsArr:Request[]=new Array();
 
   constructor(private http: HttpClient) { 
-    this.requestsArr.push(new Request(1,"123456789","bneybrak","jerusalem",new Date(),"dst","csa",null));
-    this.requestsArr.push(new Request(2,"123456780","roshhain","jerusalem",new Date(),"skmq","sdav",null));
+    // this.requestsArr.push(new Request(1,"123456789","bneybrak","jerusalem",new Date(),"dst","csa",null));
+    // this.requestsArr.push(new Request(2,"123456780","roshhain","jerusalem",new Date(),"skmq","sdav",null));
+    // this.requestsArr.push(new Request(3,"123456789","bneybrak","jerusalem",new Date(),"dst","csa",null));
+    // this.requestsArr.push(new Request(4,"123456780","roshhain","jerusalem",new Date(),"skmq","sdav",null));
+    // this.requestsArr.push(new Request(5,"123456789","bneybrak","jerusalem",new Date(),"dst","csa",null));
+    // this.requestsArr.push(new Request(6,"123456780","roshhain","jerusalem",new Date(),"skmq","sdav",null));
+    // this.requestsArr.push(new Request(7,"123456789","bneybrak","jerusalem",new Date(),"dst","csa",null));
+    // this.requestsArr.push(new Request(8,"123456780","roshhain","jerusalem",new Date(),"skmq","sdav",null));
+    // this.requestsArr.push(new Request(9,"123456789","bneybrak","jerusalem",new Date(),"dst","csa",null));
+    // this.requestsArr.push(new Request(10,"123456780","roshhain","jerusalem",new Date(),"skmq","sdav",null));
+    // this.requestsArr.push(new Request(11,"123456789","bneybrak","jerusalem",new Date(),"dst","csa",null));
+    // this.requestsArr.push(new Request(12,"123456780","roshhain","jerusalem",new Date(),"skmq","sdav",null));
   }
  private getCode():number{
    let max:number=0;
@@ -33,8 +43,10 @@ requestsArr:Request[]=new Array();
   getAllRequests():Request[]{
     return this.requestsArr;
   }
-  getRequests():Request[]{
-    return this.requestsArr.filter(element=>element.TravelCode==null);
+  getRequests(){
+     return this.http.get<Request[]>("http://localhost:54736/api/Request/getRequests");
+     
+  
   }
   getId():number{
     let max:number=0;

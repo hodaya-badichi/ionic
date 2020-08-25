@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Hello,{{thisUser.UserFirstName}}</ion-title>
+    <ion-title *ngIf="thisUser">Hello,{{thisUser.UserFirstName}}</ion-title>
   </ion-toolbar>
 </ion-header>
 

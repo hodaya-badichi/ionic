@@ -1,0 +1,42 @@
+ion-card{
+   
+    border: 4px solid black;
+    height: 25vh;
+    width: 75vw;
+   
+    background-color: transparent;
+
+}
+ion-content ion-card:nth-child(odd){
+   margin-left:15vw ;
+
+}
+ion-content ion-grid{
+    background: url('../../assets/map.png');
+     //overflow: hidden;
+   // -ms-overflow-style: none;
+
+}
+
+    
+.logo{
+    width: 33vw;
+    position: fixed;
+    z-index: 2;
+    bottom: 15vh;
+    left: 31vw;
+ }
+
+
+ ion-content {
+    // width: 400px;
+    // height: 200px;
+    border: 1px solid #AAA;
+    overflow: hidden;
+  }
+  ion-grid {
+    height: 100%;
+    margin-right: -50px; /* Maximum width of scrollbar */
+    padding-right: 50px; /* Maximum width of scrollbar */
+    overflow-y: scroll;
+  }

@@ -1,0 +1,88 @@
+
+// .logo{
+//    width: 50vw;
+//    margin: auto;
+// }
+ion-item{
+   // border: 2px solid ;
+    // border-radius: 4em;
+    height: 8vh;
+    width: 75vw;
+    margin-top: 1em;
+    margin:auto;
+}
+.driver{
+    border: none;
+    margin-top: 3vh;
+}
+form{
+    position: absolute;
+    top: 27vh;
+    left: 14vw;
+    height: 50%;
+    text-align: center;
+}
+// ion-content  ion-grid{
+//     background: url('../../assets/map.png');
+//      height: 100%;
+// }
+
+a{
+    color:black;
+    font-size: small;
+}
+ion-button{
+    --box-shadow: #000000d1 4px 4px 4px;
+    --background:#fe8100;
+    --background-hover:#f79330;
+    --background-activated:#f79330;
+    margin-bottom: 4vh;
+}
+
+ion-avatar{
+    border: 2.5px solid #fe8100;
+    margin: auto;
+    width: 35vw;
+    height: 35vw;
+    margin-top: 5vh;
+}
+
+ion-input{
+    border-bottom: 1.5px solid #fe8100;
+}
+ion-checkbox{
+    --background-checked:#fe8100;
+    --border-color:#fe8100;
+    --border-color-checked	:#fe8100;
+}
+// ion-toolbar{
+//     --background: black;
+//    height: 9vh;
+//     color:#fe8100;
+//     font-size: smaller;
+// }
+// ion-title{
+//     font-size: small;
+//    margin-top: -2vh;
+// }
+// ion-back-button{
+//     font-size: small;
+//     margin-top: -4vh;
+//      --color:#fe8100;
+//  }
+// .statusbar{
+//     --color: white;
+// }
+ion-fab-button {
+    --background: black;
+    --background-hover: black;
+    --background-activated: black;
+    height: 12vw;
+    width: 12vw;
+    margin-left: 54vw;
+    margin-top: -6.3vh;
+
+  }
+  ion-fab-button ion-icon{
+      font-size: 6vw;
+  }

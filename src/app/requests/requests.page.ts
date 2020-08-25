@@ -6,7 +6,7 @@ import { User } from '../class/user';
 @Component({
   selector: 'app-requests',
   templateUrl: './requests.page.html',
-  styleUrls: ['./requests.page.scss'],
+  styleUrls: ['./requests.page.scss','../app.component.scss'],
 })
 export class RequestsPage implements OnInit {
   thisUser:User=null;
@@ -20,10 +20,10 @@ export class RequestsPage implements OnInit {
     this.menu.close('first');
   }
   ngOnInit() {
-    this.thisUser=this.userService.thisUser;
+    this.thisUser=JSON.parse(localStorage.getItem("user"));
   }
   isDriver(){
-    return this.thisUser.IsDriver;
+    return this.thisUser && this.thisUser.IsDriver;
   }
 
 }

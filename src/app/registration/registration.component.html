@@ -6,40 +6,68 @@
     <ion-title>Register</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content>
+<ion-content> 
+
+  <ion-grid>
+     <!-- <ion-img class="logo" src="..\..\assets\logo.png"></ion-img> -->
+     <ion-avatar>
+      <ion-img src="../../assets/profile.png"></ion-img>    
+    </ion-avatar>
+  
+      <ion-fab-button>
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+  
   <form #myform="ngForm" (ngSubmit)="onSubmit(myform)">
-    <ion-item lines="full">
-      <ion-label position="floating">Id</ion-label>
-      <ion-input type="text"  name="UserId" ngModel required></ion-input>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">FirstName</ion-label>
-      <ion-input type="text"  name="UserFirstName" ngModel required></ion-input>
-    </ion-item>
+   
+    <ion-row>
+      <!-- <ion-label position="floating">Id</ion-label> -->
+      
+      <ion-input placeholder="Id" type="text"  name="UserId" ngModel required></ion-input>
+    </ion-row>
+    <ion-row>
+      <!-- <ion-label position="floating">Password</ion-label> -->
+      <ion-input placeholder="Password" type="password"  name="UserPassword" ngModel required></ion-input>
+    </ion-row>
+    <ion-row >
+      <!-- <ion-label position="floating">FirstName</ion-label> -->
+      <ion-input placeholder="FIrst Name" type="text"  name="UserFirstName" ngModel required></ion-input>
+    </ion-row>
+    <ion-row>
+        <ion-input placeholder="Last Name" type="text"  name="UserLastName" ngModel ></ion-input>
+    </ion-row>
 
-    <ion-item lines="full">
+    <!-- <ion-item lines="full">
       <ion-label position="floating">LastName</ion-label>
-      <ion-input type="text"  name="UserLastName" ngModel ></ion-input>
-    </ion-item>
-
-    <ion-item lines="full">
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="text"  name="UserMail" ngModel required></ion-input>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">Phone</ion-label>
-      <ion-input type="text"  name="UserPhone" ngModel required></ion-input>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password"  name="UserPassword" ngModel required></ion-input>
-    </ion-item>
+    
+    </ion-item> -->
 
     <ion-row>
+      <!-- <ion-label position="floating">Email</ion-label> -->
+      <ion-input placeholder="Email" type="email"  name="UserMail" ngModel required></ion-input> 
+    </ion-row>
+    <ion-row>
+      <ion-input placeholder="Phone" type="text"  name="UserPhone" ngModel required></ion-input>
+    </ion-row>
+
+    <!-- <ion-item lines="full">
+      <ion-label position="floating">Phone</ion-label>
+     
+    </ion-item> -->
+    <!-- <ion-item lines="full">
+    
+    </ion-item> -->
+    <ion-item class="driver">
+      <ion-label><strong>Are you a driver?</strong> </ion-label>
+      <ion-checkbox class="small-text" (click)="Checked()" color="danger"></ion-checkbox>
+    </ion-item>
+    <ion-row>
       <ion-col>
-        <ion-button type="submit" color="danger" expand="block">Sign Up</ion-button>
+        <ion-button type="submit" size="small" shape="round">Sign Up</ion-button>
+        <!-- <ion-button type="submit" color="danger" expand="block">Sign Up</ion-button> -->
       </ion-col>
     </ion-row>
     
   </form>
+</ion-grid>
 </ion-content>

@@ -1,0 +1,129 @@
+// .logo{
+
+//     width: 55vw;
+//     margin: auto; 
+//    //margin-top: 2vh;
+// }
+// ion-input{
+//     border: 2px solid #eb445a;
+//     border-radius: 4em;
+//     margin: 0.3em;
+//     background-color: white;
+// }
+
+// .driver{
+//     border: none;
+// }
+// form{
+//     text-align: center;
+// }
+// ion-item{
+//     margin-top: 1em;
+//     background-color: transparent;
+// }
+// ion-content ion-grid{
+//     background: url('../../assets/map.png');
+//      height: 100%;
+// }
+// ion-button{
+
+ 
+//     --box-shadow: #000000d1 4px 4px 4px;
+
+// }
+// ion-item{
+//     // border: 2px solid ;
+//      // border-radius: 4em;
+//     //  height: 8vh;
+//     //  width: 75vw;
+//     //  margin-top: 1em;
+//     //  margin:auto;
+//  }
+ .driver{
+     border: none;
+     margin-top: 3vh;
+ }
+ form{
+     position: absolute;
+     top: 15vh;
+     left: 14vw;
+     height: 50%;
+     text-align: center;
+ }
+ // ion-content  ion-grid{
+ //     background: url('../../assets/map.png');
+ //      height: 100%;
+ // }
+ 
+ a{
+     color:black;
+     font-size: small;
+ }
+ ion-button{
+     --box-shadow: #000000d1 4px 4px 4px;
+     --background:#fe8100;
+     --background-hover:#f79330;
+     --background-activated:#f79330;
+     margin-bottom: 4vh;
+ }
+ 
+ ion-avatar{
+    border: 2px solid #fe8100;
+    margin-left: 17vw;
+    width: 20vw;
+    height: 20vw;
+    margin-top: 2vh;
+ }
+ 
+ ion-input{
+     border-bottom: 1.5px solid #fe8100;
+     margin-top: 3vh;
+ }
+ ion-checkbox{
+     --background-checked:#fe8100;
+     --border-color:#fe8100;
+     --border-color-checked	:#fe8100;
+ }
+ ion-toolbar{
+     --background: black;
+    height: 9vh;
+     color:#fe8100;
+     font-size: smaller;
+ }
+ ion-title{
+     font-size: small;
+    margin-top: -2vh;
+ }
+ ion-back-button{
+    font-size: small;
+    margin-top: -4vh;
+     --color:#fe8100;
+ }
+ .statusbar{
+     --color: white;
+ }
+ ion-content{
+    width: 400px;
+    height: 200px;
+    border: 1px solid #AAA;
+    overflow: hidden;
+  }
+  ion-grid{
+    height: 100%;
+    margin-right: -50px; /* Maximum width of scrollbar */
+    padding-right: 50px; /* Maximum width of scrollbar */
+    overflow-y: scroll;
+  }
+  ion-fab-button {
+    --background: black;
+    --background-hover: black;
+    --background-activated:black;
+    height: 8vw;
+    width: 8vw;
+    margin-left: 29.5vw;
+    margin-top: -4vh;
+
+  }
+  ion-fab-button ion-icon{
+      font-size: 5vw;
+  }

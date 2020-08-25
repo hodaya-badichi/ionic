@@ -1,25 +1,40 @@
 <ion-header>
   <ion-toolbar>
   
-    <ion-tab-button style="position: absolute;top: 0em;left: 0em;" (click)="openMenu()">
-      <ion-icon name="reorder-three-outline"></ion-icon>  
-    </ion-tab-button> 
-
+    <ion-tab-button (click)="openMenu()">
+      <ion-icon name="reorder-four-outline"></ion-icon>
+    </ion-tab-button>
+<!-- {{thisUser.UserFirstName}} -->
    <!-- <ion-title *ngIf="{{thisUser.isDriver}}">שלום לנהג {{thisUser.UserFirstName}} {{thisUser.UserLastName}}</ion-title> -->
-    <ion-title>hello, {{thisUser.UserFirstName}}</ion-title>
+    <ion-title *ngIf="thisUser">hello, {{thisUser.UserFirstName}} </ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content>
+<ion-content class="container">
+  <ion-grid >
    <ion-item *ngIf="isDriver()" routerLink="list-requests">רשימת הבקשות</ion-item>
    <ion-item *ngIf="isDriver()" routerLink="travelsOfDriver">רשימת הנסיעות שלי</ion-item>
    <ion-item *ngIf="!isDriver()" routerLink="list-travels">רשימת הנסיעות</ion-item>
-   <ion-item *ngIf="!isDriver()" routerLink="add-request">הוסף בקשה</ion-item>
-   <!-- <router-outlet></router-outlet> -->
+   <ion-item *ngIf="!isDriver()" routerLink="add-request">הוסף בקשה</ion-item> 
+   <!-- <router-outlet></router-outlet>-->
+<!-- <ion-content class="driver"> -->
+ <ion-card></ion-card>
+ <ion-card></ion-card>
+ <ion-card></ion-card>
+ <ion-card></ion-card>
+ <!-- </ion-content>
+ <ion-content class="user"> -->
+ <ion-card></ion-card>
+ <ion-card></ion-card>
+ <ion-card></ion-card>
+ <ion-card></ion-card>
+<!-- </ion-content> -->
+ <!-- <ion-img class="logo"  src="..\..\assets\logo.png"></ion-img> -->
+ </ion-grid>
 </ion-content>
 
 <ion-menu side="start" menuId="first" contentId="main">
   <ion-header >
-    <ion-toolbar color="primary" (click)="closeMenu()">
+    <ion-toolbar  color="danger" (click)="closeMenu()">
       
 
       <ion-title >Start Menu</ion-title>

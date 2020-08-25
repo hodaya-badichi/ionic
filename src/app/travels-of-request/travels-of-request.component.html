@@ -1,14 +1,28 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button  color="danger"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{request.Date}} </ion-title>
+    <!-- {{request.Date | date :  "dd.MM.y" }} -->
+    <ion-title>{{request.SourceAddress}} to
+      {{request.DestinationAddress}}</ion-title>
+      <ion-tab-button (click)="openMenu()">
+        <ion-icon name="reorder-four-outline"></ion-icon>
+      </ion-tab-button>
   </ion-toolbar>
 </ion-header>
 
+
+
 <ion-content>
-  <ion-item >{{request.Summarry}}</ion-item>
+  
+  <ion-card >
+    <h2>{{request.SourceAddress}} to {{request.DestinationAddress}}</h2>
+      <p>{{request.Date | date :  "dd.MM.y" }}</p>
+   <ion-label> {{request.Summarry}}</ion-label><br>
+   <ion-button (click)="AddTravelOfThisRequest()" size="small">צור נסיעה חדשה</ion-button>
+   <ion-button routerLink="travelOfDriver/{{request.RequestCode}}" size="small">צרף לנסיעה קיימת</ion-button>
+  </ion-card>
   <!-- <h2>Travel list for this request</h2>
 
       <ion-tab-bar>
@@ -34,6 +48,5 @@
     
   </ion-list> -->
   <!-- <ion-input type="number" [(ngModel)]="numsOfPassengers" ></ion-input> -->
-  <ion-button (click)="AddTravelOfThisRequest()"  expand="block">צור נסיעה חדשה</ion-button>
-  <ion-button routerLink="travelOfDriver/{{request.RequestCode}}" expand="block">צרף לנסיעה קיימת</ion-button>
+
 </ion-content>

@@ -1,0 +1,33 @@
+ion-toolbar{
+    --background: black;
+   height: 9vh;
+    color:#fe8100;
+    font-size: smaller;
+}
+ion-title{
+    font-size: small;
+   margin-top: -2vh;
+  
+}
+ion-back-button{
+    font-size: small;
+    margin-top: -4vh;
+     --color:#fe8100;
+ }
+.statusbar{
+    --color: white;
+}
+ion-tab-button {
+    position: absolute;
+    top: -0.5em;
+    right: 1em;
+    color: #fe8100;
+    width: 9.5vw;
+    height: 11vw;
+}
+ion-button{
+    --background:#fe8100;
+    --background-hover:#f79330;
+    --background-activated:#f79330;
+    --box-shadow: black 1px 1px 4px;
+}

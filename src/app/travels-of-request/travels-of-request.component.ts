@@ -14,7 +14,7 @@ import { NgModel } from '@angular/forms';
 @Component({
   selector: 'app-travels-of-request',
   templateUrl: './travels-of-request.component.html',
-  styleUrls: ['./travels-of-request.component.scss'],
+  styleUrls: ['./travels-of-request.component.scss','../app.component.scss'],
 })
 export class TravelsOfRequestComponent implements OnInit {
  request:Request=null;

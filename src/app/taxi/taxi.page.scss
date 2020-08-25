@@ -8,34 +8,43 @@
       flex: 1;
     }
 }
-  
 .line {
     align-items: center;
     margin: 1em -1em;
-    color: #cccccc;
-    
+    color: #9E9E9E;
     &:before,
     &:after {
       height: 1px;
       margin: 0 1em;
     }
 } 
-
 .one-line {
     &:before,
     &:after {
-       background: #cccccc;
+       background: #9E9E9E;
     }
 }
-
 .auth-form ion-grid,
-.auth-form ion-row {
-    height: 100%;
-    justify-content: center;
+.auth-form ion-row {  
+    justify-content: center; 
 }
-
 .already {
     display: block;
     text-align: center;
     padding-bottom: 10px;
+}
+ion-button{
+    --box-shadow: #000000d1 4px 4px 4px;
+    --background:#fe8100;
+    --background-hover:#f79330;
+    --background-activated:#f79330;
+    --box-shadow: black 4px 4px 4px;
+}
+ion-avatar{
+    border: 2.5px solid #fe8100;
+    margin: auto;
+    width: 40vw;
+    height: 40vw;
+    margin-top: 7vh;
+    margin-bottom: 9vh;
 }
