@@ -5,7 +5,7 @@
       <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>requests</ion-title> 
-    <ion-tab-button  (click)="openMenu()">
+    <ion-tab-button  (click)="GO()">
       <ion-icon name="reorder-four-outline"></ion-icon>
     </ion-tab-button>
     <!-- <ion-img class="logo" src="../../assets/logo.png"></ion-img> -->
@@ -13,12 +13,25 @@
 </ion-header>
 
 <ion-content>
-
-  <ion-grid>
-
+  
+  <ion-segment *ngIf="thisUser!=null && !isDriver"  (ionChange)="segmentChanged($event)" color="dark" value="All">
+    <ion-segment-button value="All">
+      <ion-label>All</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Travels">
+      <ion-label>Travels</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Requests">
+      <ion-label>Requests</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+ <ion-searchbar showCancelButton="never" (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-grid [class.user]="thisUser!=null && !isDriver">
+  
   <ion-list *ngFor="let item of requestsArr">
  <!-- routerLink="Travels/{{item.RequestCode}}" -->
-  <ion-item [class.checked]="rCode==item.RequestCode" (click)="f(item.RequestCode)">
+  <!-- (click)="f(item.RequestCode)" -->
+  <ion-item [class.checked]="rCode==item.RequestCode"  >
     <ion-avatar slot="start">
       <img src="../../assets/profile.png">
     </ion-avatar>
@@ -26,11 +39,20 @@
       <h2>{{item.SourceAddress}} to
      {{item.DestinationAddress}}</h2>
       <p>{{item.Date | date :  "dd.MM.y" }}</p> 
-    
+    <p *ngIf="!isPase(item.Date)" class="date">The date has passed</p>
       <ion-label *ngIf="rCode==item.RequestCode">
-         <p> {{item.Summarry}}</p>
-        <ion-button (click)="AddTravelOfThisRequest()" size="small" color="light" expand="block">צור נסיעה חדשה</ion-button>
-        <ion-button routerLink="travelOfDriver/{{item.RequestCode}}" size="small" color="light" expand="block">צרף לנסיעה קיימת</ion-button>
+         <p *ngIf="item.Summarry!=''"> {{item.Summarry}}</p>
+         <p *ngIf="!isPase(item.Date)">Send this trip on a different date</p>
+         <a *ngIf="isDriver"  (click)="animtion(item)">Add a new travel </a>
+         <span *ngIf="isDriver" class="divider line one-line">or</span>
+         <a  *ngIf="isDriver" (click)="SelectTravel(item)">Add to exist travel </a>
+         
+        <p *ngIf="!isDriver && item.TravelCode==null">No driver has yet been found for the trip</p>
+        <a *ngIf="!isDriver && item.TravelCode!=null && isPase(item.Date)" routerLink="map/{{item.TravelCode}}">Switch to travel rout</a>
+        <a *ngIf="!isDriver && item.TravelCode!=null && !isPase(item.Date)" routerLink="commentsOfDriver/{{getDriverId(item.TravelCode)}}">Add opinion</a>
+        <br *ngIf="!isDriver && item.TravelCode!=null">
+        <span *ngIf="!isDriver && item.TravelCode!=null" class="divider line one-line">or</span>
+        <a *ngIf="!isDriver" (click)="Del(item)">Del a travel</a>
       </ion-label>
     </ion-label>
     <ion-note color="primary" size="small" (click)="f(item.RequestCode)">
@@ -41,26 +63,61 @@
  </ion-item>
 </ion-list>
 </ion-grid>
+
+<div class="block" *ngIf="thisTravel!=null || TravelsArrOfUser!=null"></div>
+<div class="AddRequest" *ngIf="thisTravel!=null">
+  <ion-icon (click)="thisTravel=null" id="close" name="close-circle-sharp"></ion-icon>
+
+  <form #myform="ngForm" (ngSubmit)="onSubmit()">
+    <!-- <input type="text" class="native-input sc-ion-input-ios" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search> -->
+    <ion-row *ngIf="!isPase(thisTravel.Date)" >
+      <input type="datetime" placeholder="Date"  [(ngModel)]="date"/>
+    </ion-row>
+    <ion-row>
+      <input id="SourceAddress" [ngModelOptions]="{standalone: true}"  type="text" placeholder="Source Address" ngModel required />
+    </ion-row>
+    <ion-row>
+      <input id="DestinationAddress" [ngModelOptions]="{standalone: true}" type="text" placeholder="Destination Address" ngModel required />
+    </ion-row>
+    <ion-row>
+      <input type="number" placeholder="NumOfPassengers"  [(ngModel)]="placesOfUser" min=1/>
+    </ion-row>
+    <ion-row>
+      <input type="number" placeholder="Price"  [(ngModel)]="price"/>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-button class="btn" (click)="AddNewTravel(thisTravel)" expand="block" size="small" shape="round">Sign Up</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+  <!-- <ion-item class="link" routerLink="commentsOfDriver/{{thisTravel.UserId}}">who is your driver?</ion-item> -->
+</div>
+<div class="travelArr" *ngIf="TravelsArrOfUser!=null">
+    <p class="h">Select a trip from the travel list</p>         
+   
+
+  <div class="listDiv">
+  <ion-list class="list" *ngFor="let item of TravelsArrOfUser">
+    <ion-item (click)="func(item)" id="select" [class.clickItem]="getClass(item)" >{{item.SourceAddress + ' ' + item.DestinationAddress}}</ion-item>
+  </ion-list>
+</div>
+<ion-row>
+  <ion-col class="resO" size="5.9" (click)="Ok()">OK </ion-col>         
+  <ion-col class="resC" size="5.9"(click)="TravelsArrOfUser=null">Cancel</ion-col>
+</ion-row>
+</div>
+<!-- <ion-icon *ngIf="TravelsArrOfUser!=null"  (click)="TravelsArrOfUser=null"  id="closeItem" name="close-circle-sharp"></ion-icon>
+<ion-item class="selectTravel" *ngIf="TravelsArrOfUser!=null">
+  
+<ion-label class="ls"> select travel of this request</ion-label>
+<ion-select id="select">
+  <ion-select-option value=""></ion-select-option>
+  <ion-select-option *ngFor="let item of TravelsArrOfUser" (change)="func(item)">{{item.SourceAddress + ' ' + item.DestinationAddress}}</ion-select-option>
+</ion-select> -->
+<!-- </ion-item> -->
 </ion-content>
 
 
-<ion-menu side="start" menuId="first" contentId="main">
-  <ion-header >
-    <ion-toolbar (click)="closeMenu()">
-      
 
-      <ion-title >Start Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    <ion-list>
-     
-    <!-- //  <ion-item routerLink="list-requests">רשימת הבקשות</ion-item>
-    -->
-      <ion-item (click)="AddRequest()">הוסף בקשה</ion-item>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
-    </ion-list>
-  </ion-content>
-</ion-menu>

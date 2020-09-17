@@ -29,13 +29,13 @@ export class TravelsOfRequestComponent implements OnInit {
 
     this.activatedRoute.paramMap.subscribe(res => {
     
-     this.request= this.requestService.getARequastById(Number(res.get("RequestCode")));        
+    // this.request= this.requestService.getARequastById(Number(res.get("RequestCode")));        
     });
     //alert(this.request.RequestCode);
     //this.travelsArr=this.travelsService.getTravelsOfRequest(this.request);
     // this.DriversArr=this.travelsArr.filter(element=>element.IsDriver);
-    this.travelsArr=this.travelsService.getTravelsArr();
-    this.thisUser=this.userService.getThisUser();
+    // this.travelsArr=this.travelsService.getTravelsArr();
+    // this.thisUser=this.userService.getThisUser();
   
   }
   getCode():number{
@@ -73,7 +73,7 @@ export class TravelsOfRequestComponent implements OnInit {
                 let t:Travels=new Travels(this.getCode(),this.thisUser.UserId,this.request.Date,
                 this.request.SourceAddress, this.request.DestinationAddress,NumOfPassengers);
                 this.travelsArr=this.travelsService.AddTravelOfThisRequest(t);
-                this.requestService.UpDateTheRequest(this.request,t.TravleCode);
+                //this.requestService.UpDateTheRequest(this.request,t.TravleCode);
               }
             }
           ]

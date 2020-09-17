@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-tab-button (click)="GO()">
+      <ion-icon name="reorder-four-outline"></ion-icon>
+    </ion-tab-button>
+    <ion-title> Add-request</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- <ion-item> -->
+  <ion-header class="driverHeader">
+    <ion-avatar class="driverProfil">
+      <img src="../../assets/profile.png">
+    </ion-avatar>
+    <div class="driver">
+<!-- 
+      <ion-icon class="like" name="thumbs-up-sharp"></ion-icon>
+      <ion-label class="slike">{{getLike()}}</ion-label> -->
+      <ion-label id="driver" *ngIf="driver!=null">{{driver.UserFirstName}} {{driver.UserLastName}}</ion-label>
+      <p  *ngIf="driver!=null">{{driver.UserPhone}} | {{driver.UserMail}}</p>      
+      <!-- <ion-icon class="dislike" name="thumbs-down-sharp"></ion-icon>
+      <ion-label class="sdislike">{{getDisLike()}}</ion-label> -->
+    </div>
+
+    <!-- </ion-item> -->
+    <!-- <h4>Passenger opinion:</h4> -->
+  </ion-header>
+  <ion-grid>
+    <!-- -->
+   <a (click)="addOpinion=true" *ngIf="travelCodeO!=null">add opinion yourSelf</a>
+   <ion-icon (click)="addOpinion=true" *ngIf="travelCodeO!=null" class="next" name="arrow-forward-circle-outline"></ion-icon>
+    <ion-list *ngFor="let item of opinionArr">
+      <ion-item >
+        <ion-avatar slot="start">
+          <img src="../../assets/profile.png">
+        </ion-avatar>
+        <ion-label>
+        <ion-label class="text">
+          <!-- <h2> {{item.Stars}}</h2> -->
+          <ion-icon class="{{getClassStar(1,item)}}" name="star"></ion-icon>
+          <ion-icon class="{{getClassStar(2,item)}}" name="star"></ion-icon>
+          <ion-icon class="{{getClassStar(3,item)}}" name="star"></ion-icon>
+          <ion-icon class="{{getClassStar(4,item)}}" name="star"></ion-icon>
+          <ion-icon class="{{getClassStar(5,item)}}" name="star"></ion-icon>
+        <br>
+       
+        <span>{{item.Summery}}</span>
+        
+      
+         </ion-label>
+        </ion-label>
+       
+        <!-- <a routerLink="commentsOfDriver/{{item.UserId}}">למעבר לחוות דעת לחץ כאן</a> -->
+      </ion-item>
+    </ion-list>
+    <div class="block" *ngIf="addOpinion"></div>
+  </ion-grid>
+    <form *ngIf="travelCodeO != null && addOpinion">
+      <ion-icon (click)="addOpinion=false" id="close" name="close-circle-sharp"></ion-icon>
+      <h3>Add opinion for driver</h3>
+      <ion-label class="text">
+        <!-- <h2> {{item.Stars}}</h2> -->
+
+        <ion-icon (click)="AddStars(0)"  [class.sT]="starsArr[0]" [class.sF]="!starsArr[0]"   name="star"></ion-icon>
+        <ion-icon (click)="AddStars(1)"  [class.sT]="starsArr[1]" [class.sF]="!starsArr[1]"  name="star"></ion-icon>
+        <ion-icon (click)="AddStars(2)"  [class.sT]="starsArr[2]" [class.sF]="!starsArr[2]"  name="star"></ion-icon>
+        <ion-icon (click)="AddStars(3)"  [class.sT]="starsArr[3]" [class.sF]="!starsArr[3]"  name="star"></ion-icon>
+        <ion-icon (click)="AddStars(4)"  [class.sT]="starsArr[4]" [class.sF]="!starsArr[4]" name="star"></ion-icon>
+  
+       </ion-label>
+       <br>
+       <p>what do think about this driver?</p>
+       
+      <textarea id="summery"> </textarea>
+      <div>
+        <ion-button (click)="AddOpinion()" fill="solid" >Send</ion-button>
+      <ion-button (click)="addOpinion=false" fill="solid" >Cancel</ion-button>
+      </div>
+      
+    </form>
+
+</ion-content>

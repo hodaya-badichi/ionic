@@ -20,6 +20,23 @@ thisUser:User;
       // this.users.push(u4);
 
    }
+  //  public uploadImage(file: File, id: number): Observable<ArrayBuffer> {
+ 
+  //   let input = new FormData();
+  //   input.append('file', file, file.name);
+  //   let headers = new HttpHeaders();
+  //   headers.append('Content-Type', 'multipart/form-data');
+  //   let options = { headers: headers };
+
+  //   return this.http.post<ArrayBuffer>(`http://localhost:60876/api/Hospital/upload/${id}`, input, options);
+  // }
+  getUsers(){
+    return this.http.get<User[]>("http://localhost:54736/api/Users/getUsers"); 
+   }
+   getPassword(email:string){
+    
+    return this.http.get<boolean>("http://localhost:54736/api/SendEmail/SendEmailForPassword/"+email); 
+   }
    register(user:User){      
      this.http.post("http://localhost:54736/api/Users/register",user).subscribe(
        (res)=>{
@@ -35,7 +52,7 @@ thisUser:User;
   //  this.thisUser=user;
     //this.users.push(user);
     }
-    Login(idUser:string,password:string,isDriver:boolean){
+    Login(idUser:string,password:string){
     return this.http.get<User>("http://localhost:54736/api/Users/login/"+idUser+"/"+password); 
     // this.thisUser= this.users.find(x=>x.UserId==idUser&&x.UserPassword==password&&x.IsDriver==isDriver);
     // return this.thisUser;
@@ -43,10 +60,9 @@ thisUser:User;
     getThisUser():User{
       return this.thisUser;
     }
-    getUserById(idUser:string):User{
-      //return this.http.get<User>("http://localhost:54736/api/User/login/"+idUser+"/"+password);   
-        return this.users.find(x=>x.UserId==idUser);
-      }
+    getUserById(idUser:string){     
+      return this.http.get<User>("http://localhost:54736/api/Users/getUserById/"+idUser); 
+    }
     // getDriversOfRequest(TravelsArr:Travels[]):User[]{
     //   let Drivers:User[]=new Array();
     //   TravelsArr.forEach(element => {

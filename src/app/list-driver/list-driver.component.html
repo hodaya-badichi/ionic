@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+   
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Drivers</ion-title> 
+    <ion-tab-button  (click)="GO()">
+      <ion-icon name="reorder-four-outline"></ion-icon>
+    </ion-tab-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+  <ion-list *ngFor="let item of UsersArr">
+  <ion-item >
+    <ion-avatar slot="start">
+      <img src="../../assets/profile.png">
+    </ion-avatar>
+    <ion-label>
+    <ion-label>{{item.UserFirstName}} {{item.UserLastName}}</ion-label>
+    <p>{{item.UserPhone}}</p>
+      <p>{{ item.UserMail}}</p>   
+    <a *ngIf="item.IsDriver" routerLink="commentsOfDriver/{{item.UserId}}" >Passenger opinion</a>
+   
+  </ion-label>
+ </ion-item>
+</ion-list>
+</ion-grid>
+</ion-content>

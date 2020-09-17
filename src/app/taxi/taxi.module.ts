@@ -12,6 +12,7 @@ import { ExistComponent } from '../exist/exist.component';
 import { RegistrationComponent } from '../registration/registration.component';
 import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
 import { RequestsPage } from '../requests/requests.page';
+import { ChatComponent } from '../chat/chat.component';
 
 
 @NgModule({

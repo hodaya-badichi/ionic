@@ -1,0 +1,110 @@
+.checked{
+    // --background: #f3d5ba69;
+    --background:#e4e6e7;
+}
+
+agm-map {
+    height: 400px;
+}
+.google-map {
+    min-width: 100vw;
+    min-height: 30vh;
+}
+
+.block{
+    background-color: #000000a6;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 9vh;
+    left: 0;
+    z-index: 1;
+}
+form,ion-row, optgroup, select {
+    margin: auto;
+    text-align: center;
+    //font: inherit;
+    color: inherit;
+    margin-top: 5vh;
+}
+input{
+    margin: auto;
+    text-align: center;
+}
+.btn{
+    color:black;
+    width: 50vw;
+    margin-left: 20vw;
+    
+}
+.link{
+    margin-top: 1vh;
+    width: 94vw;
+    margin-left: 0vw;
+    --background: #00000017;
+}
+#close{
+    height: 11%;
+    width: 12%;
+    position: absolute;
+    right: 0vw;
+    top: -2.8vw;
+}
+.text{
+    white-space: break-spaces;
+    font-size: small;
+}
+h2{
+    white-space: break-spaces;
+    font-size: 0.9em;
+}
+#priceText{
+    position: absolute;
+    font-size: large;
+    text-shadow: 0px 0px 1px #336aa9;
+    color: #242a31;
+}
+#priceIcon{
+    color: #2b4c72;
+    width: 7vw;
+    height: 6vw;
+}
+.price{
+    width: 18vw;
+    /* text-align: center; */
+    margin-left: 21vw;
+    margin-top: 1vw;
+}
+.AddRequest{
+    height: 60vh;
+    width: 94vw;
+    position: fixed;
+    margin-top: 6vh;
+    left: 3vw;
+    z-index: 2;
+    border-top-left-radius: 10vw;
+    border-top-right-radius: 10vw;
+    box-shadow: 0px 0px 10px 0px #FFE082;
+    background-color: #f8f4eeeb;
+}
+ion-content {
+    width: 400px;
+    height: 200px;
+    border: 1px solid #AAA;
+    overflow: hidden;
+  }
+  ion-grid {
+   
+    margin-right: -50px; /* Maximum width of scrollbar */
+    padding-right: 50px; /* Maximum width of scrollbar */
+    overflow-y: scroll;
+    margin-bottom: 10vh;
+  }
+  ion-searchbar{
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+    background: #aeb4b7;
+    --background: #aeb4b7;
+    height: 16vw
+  }

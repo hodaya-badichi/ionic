@@ -6,6 +6,7 @@ import { registerLocaleData } from '@angular/common';
 import { RegistrationComponent } from '../registration/registration.component';
 import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
 import { RequestsPage } from '../requests/requests.page';
+import { ChatComponent } from '../chat/chat.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
   //   path:'registration/requests',
   //   component:RequestsPage,
   // },
+ 
   {
     path:'login',
     component:LoginComponent,

@@ -3,40 +3,51 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
+    <ion-tab-button (click)="GO()">
+      <ion-icon name="reorder-four-outline"></ion-icon>
+    </ion-tab-button>
     <ion-title> Add-request</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <form #myform="ngForm" (ngSubmit)="onSubmit(myform)">
-    <ion-item lines="full">
-      <ion-label position="floating">Source Address</ion-label>
-      <ion-input type="text"  name="SourceAddress" ngModel required></ion-input>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">Destination Address</ion-label>
-      <ion-input type="text"  name="DestinationAddress" ngModel required></ion-input>
-    </ion-item>
+  <ion-grid>
+  <ion-avatar>
+    <ion-icon id="bus" name="bus"></ion-icon>  
+  </ion-avatar>
 
-    <ion-item lines="full">
-      <ion-label position="floating">Date</ion-label>
-      <ion-input type="Date"  name="Date" ngModel ></ion-input>
-    </ion-item>
+  <form #myform="ngForm" (ngSubmit)="onSubmit()">
+    <!-- <input type="text" class="native-input sc-ion-input-ios" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search> -->
+    <ion-row>
+      <input id="SourceAddress" [ngModelOptions]="{standalone: true}"  type="text" placeholder="Source Address" ngModel required />
+    </ion-row>
+    <ion-row>
+      <input id="DestinationAddress" [ngModelOptions]="{standalone: true}" type="text" placeholder="Destination Address" ngModel required />
+    </ion-row>
+    <ion-row>
+      <ion-label position="floating">MM/DD/YYYY</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" min="{{thisYear}}-01-01" max="{{thisYear+5}}-01-01"id="DateTimeInput"></ion-datetime>
+    </ion-row>
+    <ion-row>
+      <ion-input type="number" placeholder="NumOfPassengers" id="NumOfPassengers"  min=1></ion-input>
+    </ion-row>
+    <ion-row *ngIf="!isDriver">
+      <ion-input type="text" placeholder="Frequency" name="Frequency" #Frequency="ngModel" ngModel></ion-input>
+    </ion-row>
 
-    <ion-item lines="full">
-      <ion-label position="floating">Frequency</ion-label>
-      <ion-input type="text"  name="Frequency" ngModel required></ion-input>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">Summarry</ion-label>
-      <ion-textarea name="Summarry" ngModel required></ion-textarea>
-    </ion-item>
+    <ion-row *ngIf="!isDriver">
+      <ion-textarea placeholder="Summarry" name="Summarry" ngModel required></ion-textarea>
+    </ion-row>
+    <ion-row *ngIf="isDriver">
+      <ion-textarea placeholder="Price"  id="Price"></ion-textarea>
+    </ion-row>
     <ion-row>
       <ion-col>
-        <ion-button type="submit" color="danger" expand="block">Sign Up</ion-button>
+        <ion-button type="submit" expand="block" size="small" shape="round">Sign Up</ion-button>
       </ion-col>
     </ion-row>
-    
   </form>
+ 
+</ion-grid>
 </ion-content>
 

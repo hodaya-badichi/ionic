@@ -1,54 +1,73 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
   
-    <ion-tab-button (click)="openMenu()">
+    <!-- <ion-tab-button (click)="openMenu()">
       <ion-icon name="reorder-four-outline"></ion-icon>
-    </ion-tab-button>
+    </ion-tab-button> -->
 <!-- {{thisUser.UserFirstName}} -->
    <!-- <ion-title *ngIf="{{thisUser.isDriver}}">שלום לנהג {{thisUser.UserFirstName}} {{thisUser.UserLastName}}</ion-title> -->
     <ion-title *ngIf="thisUser">hello, {{thisUser.UserFirstName}} </ion-title>
+
   </ion-toolbar>
 </ion-header>
-<ion-content class="container">
-  <ion-grid >
-   <ion-item *ngIf="isDriver()" routerLink="list-requests">רשימת הבקשות</ion-item>
-   <ion-item *ngIf="isDriver()" routerLink="travelsOfDriver">רשימת הנסיעות שלי</ion-item>
-   <ion-item *ngIf="!isDriver()" routerLink="list-travels">רשימת הנסיעות</ion-item>
-   <ion-item *ngIf="!isDriver()" routerLink="add-request">הוסף בקשה</ion-item> 
-   <!-- <router-outlet></router-outlet>-->
-<!-- <ion-content class="driver"> -->
- <ion-card></ion-card>
- <ion-card></ion-card>
- <ion-card></ion-card>
- <ion-card></ion-card>
- <!-- </ion-content>
- <ion-content class="user"> -->
- <ion-card></ion-card>
- <ion-card></ion-card>
- <ion-card></ion-card>
- <ion-card></ion-card>
-<!-- </ion-content> -->
- <!-- <ion-img class="logo"  src="..\..\assets\logo.png"></ion-img> -->
- </ion-grid>
+  <ion-content>
+    <ion-grid >
+      <div>
+      <ion-avatar (click)="changeType()">
+        <ion-img *ngIf="!isDriver" src="../../assets/profile.png"></ion-img> 
+        <ion-icon *ngIf="isDriver" id="bus" name="bus"></ion-icon>   
+      </ion-avatar>
+      <ion-fab-button (change)="SaveImge()">
+        
+        <ion-icon name="person-add"></ion-icon>
+    </ion-fab-button>
+  </div>
+    <ion-button fill="solid" (click)="back()">Re-entry</ion-button>
+
+      <ion-item routerLink="add-request">
+        <ion-label>{{value}}</ion-label>
+         <ion-badge color="warning" slot="end">+</ion-badge>      
+      </ion-item>
+    
+      
+ 
+
+      <ion-item *ngIf="thisUser && isDriver" routerLink="list-requests">       
+        <ion-label>All the requests</ion-label>
+        <ion-badge color="warning" slot="end">{{rDLength}}</ion-badge>
+      </ion-item>
+      <ion-item *ngIf="thisUser && isDriver" routerLink="list-travels">
+        <ion-label>My travels</ion-label>
+        <ion-badge color="warning" slot="end">{{tDLength}}</ion-badge>
+     </ion-item>
+      <ion-item *ngIf="thisUser && !isDriver" routerLink="list-travels">
+        <ion-label>All the travels</ion-label>
+        <ion-badge color="warning" slot="end">{{tDLength}}</ion-badge>
+       </ion-item>
+      <ion-item *ngIf="thisUser && !isDriver" routerLink="list-requests">
+        <ion-label>My request</ion-label>
+        <ion-badge color="warning" slot="end">{{rDLength}}</ion-badge>
+      </ion-item>
+      <ion-item *ngIf="thisUser && !isDriver" routerLink="list-drivers">       
+        <ion-label>All the drivers</ion-label>
+        <!-- <ion-badge color="warning" slot="start">{{dDLength}}</ion-badge> -->
+      </ion-item>
+      <ion-item *ngIf="thisUser && isDriver" routerLink="commentsOfDriver/{{thisUser.UserId}}">       
+        <ion-label>Passenger opinion</ion-label>
+        <!-- <ion-badge color="warning" slot="start">{{dDLength}}</ion-badge> -->
+      </ion-item>
+      <ion-item  routerLink="groups">
+        <ion-label>groups</ion-label>      
+      </ion-item>
+      <ion-item  routerLink="messege">
+        <ion-label>messege</ion-label>      
+      </ion-item>
+        
+    <ion-item  routerLink="about">       
+      <ion-label>About</ion-label>
+     
+    </ion-item>
+      <!-- <ion-item routerLink="chat">chat</ion-item> -->
+      </ion-grid>
 </ion-content>
 
-<ion-menu side="start" menuId="first" contentId="main">
-  <ion-header >
-    <ion-toolbar  color="danger" (click)="closeMenu()">
-      
-
-      <ion-title >Start Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    <ion-list>
-     
-    <!-- //  <ion-item routerLink="list-requests">רשימת הבקשות</ion-item>
-    -->
-      <ion-item (click)="AddRequest()">הוסף בקשה</ion-item>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
-    </ion-list>
-  </ion-content>
-</ion-menu>

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+   
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>your groups</ion-title> 
+    <ion-tab-button  (click)="GO()">
+      <ion-icon name="reorder-four-outline"></ion-icon>
+    </ion-tab-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+  <ion-list *ngFor="let item of GroupsArr" routerLink="chat/{{item.TravleCode}}">
+  <ion-item>
+    <ion-avatar slot="start" >
+     <ion-icon id="chat" name="people-sharp"></ion-icon>
+    </ion-avatar>
+    <ion-label>
+      <h2>{{item.SourceAddress}} >>
+        {{item.DestinationAddress}}</h2>
+        <p>By: {{getNameOfDriver(item.UserId)}}</p>
+  </ion-label>
+  <!-- <ion-note color="primary" size="small" (click)="f(item.RequestCode)">
+    <ion-icon (click)="clickDel=!clickDel" name="trash-sharp"></ion-icon>
+    <div (click)="clickDel=false" *ngIf="clickDel" id="del">del</div>
+  </ion-note> -->
+ </ion-item>
+</ion-list>
+</ion-grid>
+</ion-content>

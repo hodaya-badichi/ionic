@@ -11,13 +11,15 @@
   </ion-header>
   
   <ion-content>
-
+<!-- 
+      <input type='file' (change)="onSelectFile($event)"> -->
     <ion-grid>
       <!-- <ion-img class="logo" src="..\..\assets\logo.png"></ion-img> -->
       <ion-avatar>
         <ion-img src="../../assets/profile.png"></ion-img>    
       </ion-avatar>
-      <ion-fab-button>
+      <ion-fab-button (change)="SaveImge()">
+        
       <ion-icon name="swap-horizontal-outline"></ion-icon>
     </ion-fab-button>
       <form #myform="ngForm" (ngSubmit)="onSubmit(myform.value)">

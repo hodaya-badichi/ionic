@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-tab-button >
+      <ion-icon name="reorder-four-outline"></ion-icon>
+    </ion-tab-button>
+    <ion-title> About</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="container">
+  <ion-grid>
+    <div>
+      <h1 id="h">Who is the app for?</h1>
+      <div id="part1">
+        <span
+          >• Do you have a car? Do you travel with it regularly / are you on the
+          road a lot? </span
+        ><br /><br />
+        Someone will pay you for the fuel!<br /><br />
+        Choose a trip at times and areas that are convenient for you from the
+        list of trips in the easy ride app, communicate with passengers via the
+        chat in the app and get the route that is right for you. Do not forget
+        to talk about payment😉…
+        <br /><br />
+      </div>
+      <div id="part2">
+        <span>
+          • Tired of losing buses? Looking for direct lines to remote locations?
+          Do you have a regular trip and there is no bus available for you? </span
+        ><br /><br />
+        Sign up for the easy ride app, enter a request to travel to the desired
+        destination and drivers will contact you. For your convenience,
+        correspond with the driver through the app for full details of the trip.
+        <br /><br />
+      </div>
+
+      <h1  id="h">How to use the app?</h1>
+      <div id="part">
+        In the first use of the app, enter your personal details: first and last
+        name, ID number, code, email, cell phone, and whether you are a driver.
+        Registration is mandatory for the sake of order and reliability!
+      </div>
+      <br />
+      <div id="part1">
+        • If you are a passenger type user, enter your request details in the
+        Add Request button and a driver will contact you. You can view the
+        reviews written about the drivers as well as the list of trips and
+        requests to which you are associated.
+        <br /><br />
+      </div>
+      <div id="part2">
+        • And if you are a driver type, view the list of requests, log in to the
+        request that is right for you and join as a driver. You can create a
+        travel offer and attach passengers who are interested in this trip to it
+        who will confirm the joining in a message that will be sent to them. And
+        you can view your travel list and reviews written about you.
+        <br /><br />
+      </div>
+      <br/>
+      <div id="part">
+       <b> For your convenience for each trip you can open a chat group.</b>
+        
+      </div>
+      <br/>
+    </div>
+  </ion-grid>
+</ion-content>
+
+<ion-menu side="end" menuId="first" contentId="main">
+  <ion-header>
+    <ion-toolbar (click)="toggleMenu()">
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>

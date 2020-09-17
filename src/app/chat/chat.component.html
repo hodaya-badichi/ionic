@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Ionic Chat
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-tab-button  (click)="GO()">
+      <ion-icon name="reorder-four-outline"></ion-icon>
+    </ion-tab-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="scroller" #scrollElement>
+  
+<ion-grid class="force-overflow" >
+  <ion-row *ngFor="let message of messages">
+    <ion-col size="9" *ngIf="thisUser.UserId !== message.UserId" class="message other-message" [class.continu]="!getContinu(message)">
+     
+      <b *ngIf="getContinu(message)">{{ message.UserName }}</b>
+      
+      <br *ngIf="getContinu(message)">
+
+      <span>{{ message.Summarry }}</span>
+      <div  *ngIf="getContinu(message)" class="time" text-right>
+        <br>{{ message.Date | date:'short'}}
+      </div>
+     
+     
+    </ion-col>
+
+    <ion-col offset="2.9" size="9" *ngIf="thisUser.UserId == message.UserId" class="message my-message" [class.continu]="!getContinu(message)">
+      <b *ngIf="getContinu(message)">{{ message.UserName }}</b><br *ngIf="getContinu(message)">
+      <span>{{ message.Summarry }}</span>
+      <div  *ngIf="getContinu(message)" class="time" text-right>
+        <br>{{ message.Date | date:'short'}}
+      </div>
+
+    </ion-col>
+
+  </ion-row>
+</ion-grid>
+
+</ion-content>
+<ion-footer>
+  
+  <ion-toolbar>
+
+    <ion-textarea autosize placeholder="write your message" maxRows="4" [(ngModel)]="newMsg" class="message-input"></ion-textarea>
+    <ion-avatar (click)="newMsg != ''?sendMessage():''"  slot="end" [class.full]="newMsg != ''"> 
+      <ion-icon id="send" [class.emptyIcon]="newMsg == ''" [class.fullIcon]="newMsg != ''" name="send-sharp" ></ion-icon>
+    </ion-avatar> 
+
+  </ion-toolbar> 
+</ion-footer>

@@ -6,10 +6,10 @@
 ion-item{
    // border: 2px solid ;
     // border-radius: 4em;
-    height: 8vh;
-    width: 75vw;
-    margin-top: 1em;
-    margin:auto;
+     height: 8vh;
+     width: 73vw;
+     margin-top: 1em;
+    // margin:auto;
 }
 .driver{
     border: none;
@@ -45,6 +45,7 @@ ion-avatar{
     width: 35vw;
     height: 35vw;
     margin-top: 5vh;
+    box-shadow: 0px 0px 4px 0px black;
 }
 
 ion-input{
@@ -55,24 +56,7 @@ ion-checkbox{
     --border-color:#fe8100;
     --border-color-checked	:#fe8100;
 }
-// ion-toolbar{
-//     --background: black;
-//    height: 9vh;
-//     color:#fe8100;
-//     font-size: smaller;
-// }
-// ion-title{
-//     font-size: small;
-//    margin-top: -2vh;
-// }
-// ion-back-button{
-//     font-size: small;
-//     margin-top: -4vh;
-//      --color:#fe8100;
-//  }
-// .statusbar{
-//     --color: white;
-// }
+
 ion-fab-button {
     --background: black;
     --background-hover: black;

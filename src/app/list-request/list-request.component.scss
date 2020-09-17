@@ -1,61 +1,22 @@
-// ion-toolbar{
-//     --background: url('../../assets/map.png');
-//     height: 30vh;
-//     border-bottom: 4px solid #eb445a;
-//     border-top: 4px solid #eb445a;
-// }
-// .logo{
-//     width: 36vw;
-//     z-index: 2;
-//   position: relative;
-//   margin-top: 2vh;
-//   margin-left: -5vw;
-// }
-// ion-title{
-//     background-color: #e7485d;
-//     height: 7.5vh;
-//     width: 79vw;
-//     margin-left: 13vw;
-//     margin-top: 17vw;
-//     z-index: 1;
-//     border-radius: 5vw;
-//     border: 1px solid white;
-//     text-align: left;
-// }
-// ion-title p{
-//     position: absolute;
-//     margin-left: -8vw;
-//     margin-top: -3vh;
-//     font-size: large;
-//     font-weight: bolder;
-// }
-// ion-buttons {
-//     position: absolute;
-//     margin-top: -19vh;
-//     margin-left: 2.5vw;
-    
-// }
+
 ion-item{
     margin-top: 1vh;
   // --background: #f3d5ba69;
     width: 96vw;
+
+    
 }
 .checked{
-    --background: #f3d5ba69;
+    // --background: #f3d5ba69;
+    --background:#e4e6e7;
+    text-align: center;
 }
 
-// ion-content  ion-grid{
-//     background: url('../../assets/map.png');
-//      height: 100%;
-// }
-// ion-list{
-//     background-color: transparent;
-// }
+
 ion-button{
  --border:1px solid;
  --color: #fe8100;
  //--background:white;
-
 }
 
 ion-avatar{
@@ -69,9 +30,143 @@ ion-content {
     overflow: hidden;
   }
   ion-grid {
-    height: 100%;
+   
     margin-right: -50px; /* Maximum width of scrollbar */
     padding-right: 50px; /* Maximum width of scrollbar */
     overflow-y: scroll;
+    margin-bottom: 10vh;
   }
+  .user{
+     height:93%;
+  }
+  ion-segment{
+    width: 100vw;
+  }
+  a{
+    font-size: 0.9em;
+  }
+  .divider {
+    display: flex;
+    font-size: x-small;
+    &:before,
+    &:after {
+      content: "";
+      flex: 1;
+    }
+}
+  .line {
+    align-items: center;
+    margin: 1em -1em;
+    color: #9E9E9E;
+    &:before,
+    &:after {
+      height: 1px;
+      margin: 0 1em;
+    }
+} 
+.one-line {
+    &:before,
+    &:after {
+       background: #9E9E9E;
+    }
+}
+.AddRequest{
+  //position: absolute;
+   top: 60vw;
+}
+.selectTravel{
+  position: absolute;
+    top: 78vh;
+    width: 99vw;
+}
+#closeItem{
+ // color: red;
+  position: absolute;
+  top: 81vh;
+  height: 7vw;
+  width: 7vw;
+  z-index: 2;
+}
+ion-item ion-label{
+  white-space: break-spaces;
+}
+.ls{
+  font-size: small;
+}
+.date{
+  color: #fe5200;
+  font-size: x-small;
+}
+ion-searchbar{
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+  background: #aeb4b7;
+  --background: #aeb4b7;
+  height: 16vw;
+}
+
+.travelArr {
  
+  background-color: #ededed;
+  /* margin-left: 4vw; */
+  text-align: center;
+  /* padding: 0.8vw; */
+  position: fixed;
+  z-index: 2;
+  /* border-radius: 1vw; */
+  top: 10vh;
+  width: 100vw;
+  //height: 64vh;
+  box-shadow: 0px 0px 10px 0px #FFE082;
+
+}
+.resO,.resC{
+  background: #F57C00;
+  height: 7vh;
+  text-shadow: 0px 0px 5px;
+  font-weight: bold;
+  padding-top: 1.5vh;
+  box-shadow: 0px 0px 4px;
+  border: 1px white solid;
+  font-size: 1.17em;
+}
+.resC{
+  margin-left: 1vw;
+}
+// .h{
+//   background: #F57C00;
+//   height: 11vh;
+//   /* text-shadow: 0px 0px 5px; */
+//   font-weight: bolder;
+//   padding-top: 2.6vh;
+//   /* box-shadow: 0px 0px 4px; */
+//   border: 1px white solid;
+//   font-size: 1.17em;
+// }
+#select{
+  font-size: 4.5vw;
+  height: 8vh;
+   width: 100vw;
+}
+.h{
+  text-shadow: 1px -0.5px 3px #EF6C00;
+   
+   
+    font-weight: bolder;
+    font-size: 1.24em;
+}
+.list{
+  margin-top: 1vh;
+  margin-bottom: 1vw;
+}
+.listDiv{
+  margin-bottom: 4vw;
+}
+.clickItem{
+  border: 1.5px solid #03A9F4;
+  margin-top: 0;
+}
+form{
+  margin-top: 1.5vh;
+}

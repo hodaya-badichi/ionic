@@ -1,0 +1,119 @@
+
+.message{
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 4px;
+    //white-space: pre-wrap;
+    font-size: small;
+    text-align: start;
+    margin-bottom: 3vh;
+    box-shadow:  1px 1px 2px #595252;
+}
+.continu{
+    margin-top: -2vh;
+}
+.my-message{
+  
+    background-color: #bfbdb6;
+    border-top-right-radius: 0px;
+
+    //color: white;
+}
+.other-message{
+    // background-color: #e675009c;
+    background-color: white;
+    margin-left: 2vw;
+    border-top-left-radius: 0px;
+    // color: white;
+}
+.time{
+   // color: #dfdfdf;
+   color: rgba(39, 38, 37, 0.2);
+    float: right;
+    font-size: smaller;
+}
+
+.message-input{
+    width: 100%;
+    height: 100%;
+    font-size: 1.15em;
+    padding-top: 1vh;
+    padding-left: 1vw;
+    // border: 1px solid var(--ion-color-medium);
+    // border-radius: 10px;
+    // background: #fff;
+    //resize: none;
+
+    // margin-left: -0.5em;
+    // margin-top: -0.5em;
+    // padding-left: 10px;
+    // padding-right: 10px;
+}
+ion-col{
+    padding: 0em;
+    margin: 0em;
+    text-align: center;
+    
+}
+.textarea{
+    // width: 100%;
+    // height:7vh;
+    // margin-left: -0.17em;
+    // margin-top: -0.15em;
+    // text-align: center;
+    // font-size: 3vh;
+   
+    //margin-bottom: 0em;
+}
+
+// ion-icon{
+//     color:#fe8100;
+// }
+
+
+// .msg-btn{
+//     width: 100%;
+//     height: 100%;
+//     --padding-start:0.5em;
+//     --padding-end:0.5em;
+// }
+// .send{
+//     background-color: black;
+//     width: 100%;
+//     //height: 3vh;
+//     margin-right: -0.5em;
+//     margin-top: -0.5em;
+// }
+ion-footer ion-toolbar {
+   height: 11vh;
+   --background: black;
+    color:white;
+}
+ion-avatar{
+    width: 12vw;
+    height: 12vw;
+    margin-right: 1vw;
+    text-align: center;
+    box-shadow: 1px 1.5px 3px 0px black;
+    background: #e5e4e3;
+     
+}
+
+.emptyIcon,.fullIcon{
+    margin-left: 1vw;
+    width: 7vw;
+    height: 7vw;
+    margin-top: 1vh;
+   color: #FF6F00;
+}
+.fullIcon{
+    color: white;
+}
+.full{
+    background: #FF6F00;
+   
+}
+ion-content{
+    --background:rgb(227 194 144);
+}
+

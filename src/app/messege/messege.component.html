@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Messege
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-tab-button (click)="GO()">
+      <ion-icon name="reorder-four-outline"></ion-icon>
+    </ion-tab-button>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row *ngFor="let item of messegeArr">
+      <ion-col class="messege" size="10" *ngIf="item.summery==null">
+        <ion-label>
+          <h2>Hey, {{thisUser.UserFirstName}}</h2>
+          <ion-label *ngIf="!isDriver && item.summery==null">Travel added to your request</ion-label>
+          <ion-label *ngIf="isDriver && item.summery==null">A passenger has joined your trip</ion-label><br>
+          <p><b>the source address:</b></p>
+          <p> {{getSourceAddress(item.TravelCode)}} </p>
+          <p><b>the destination address:</b></p>
+          <p> {{getDestinationAddress(item.TravelCode)}}</p>
+          <p *ngIf="!isDriver && item.summery==null"><b>the Date:</b></p>
+          <p *ngIf="!isDriver && item.summery==null"> {{getDate(item.TravelCode)}}</p>
+          <ion-label *ngIf="!isDriver && item.summery==null" class="price">
+            <ion-label class="text" id="priceText">{{getPrice(item.TravelCode)}}</ion-label>
+            <ion-icon name="logo-usd" id="priceIcon"></ion-icon>
+          </ion-label>
+          <p *ngIf="!isDriver && item.summery==null">the driver is {{getDriverName(item.TravelCode)}}</p>
+          <a *ngIf="!isDriver && item.summery==null" routerLink="commentsOfDriver/{{getDriverId(item.TravelCode)}}">who is your driver?</a>
+        </ion-label>
+
+
+        <ion-row>
+          <ion-col (click)="Ok(item)" class="res" size="6">OK </ion-col>
+          <ion-col (click)="Cancel(item)" class="res" size="6">Cancel</ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col class="messege" size="10" *ngIf="item.summery!=null">
+        <ion-label>
+          <h2>Hey, {{thisUser.UserFirstName}}</h2>
+          <p>this messege from driver</p>
+          <p><b>the travel is: </b></p>
+          <p><b>the source address:</b></p>
+          <p> {{getSourceAddress(item.TravelCode)}} </p>
+          <p><b>the destination address:</b></p>
+          <p> {{getDestinationAddress(item.TravelCode)}}</p>
+          <ion-label><b>{{item.summery}}</b></ion-label>
+        </ion-label>
+        <ion-row>
+          <ion-col (click)="Cancel(item)" class="res" size="12">Close</ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

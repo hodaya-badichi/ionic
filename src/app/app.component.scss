@@ -1,9 +1,10 @@
-ion-toolbar{
-    --background: black;
-   height: 9vh;
-    color:#fe8100;
-    font-size: smaller;
-}
+// ion-toolbar{
+//     --background: #090909;
+//    height: 9vh;
+//     color:#fe8100;
+//     font-size: smaller;
+// }
+
 ion-title{
     font-size: small;
    margin-top: -2vh;
@@ -30,4 +31,27 @@ ion-button{
     --background-hover:#f79330;
     --background-activated:#f79330;
     --box-shadow: black 1px 1px 4px;
+}
+
+.my-custom-menu{
+    margin-right: -20vw;
+    
+}
+.my-custom-menu ion-content,.my-custom-menu ion-header{ 
+    width: 80vw;
+}
+.my-custom-menu ion-header ion-toolbar{
+    height: 13vh;
+    --background:#fe8100;
+   color: #080808;
+}
+
+ion-toolbar{
+    --background: #080808;
+    height: 9vh;
+   box-shadow:  0px 0px 5px black;
+    color: #fe8100;
+    font-size: small;
+    text-shadow: 0px 0px 1px #fe8100;
+    /* font-weight: bold; */
 }

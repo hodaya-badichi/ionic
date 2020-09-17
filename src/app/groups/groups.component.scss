@@ -1,0 +1,33 @@
+ion-avatar{
+    border: 2px solid #fe8100;
+    background-color: #e4e6e7;
+}
+#chat{
+    height: 100%;
+    width: 80%;
+    margin-left: 8%;
+    color: #aeb4b7;
+}
+#del{
+    position: absolute;
+    right: 16vw;
+    top: 2vh;
+    font-size: small;
+    background: #2196F3;
+    padding: 1vw;
+    border-radius: 1vw;
+    color: white;
+    
+}
+ion-content {
+    width: 400px;
+    height: 200px;
+    border: 1px solid #AAA;
+    overflow: hidden;
+  }
+  ion-grid {
+   
+    margin-right: -50px; /* Maximum width of scrollbar */
+    padding-right: 50px; /* Maximum width of scrollbar */
+    overflow-y: scroll;
+  }

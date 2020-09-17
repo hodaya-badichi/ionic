@@ -1,0 +1,7 @@
+{
+  "name": "agm-demo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

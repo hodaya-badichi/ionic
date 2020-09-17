@@ -19,15 +19,15 @@ export class TravelComponent implements OnInit {
   thisUser:User;
   request:Request;
   ngOnInit() {
-    this.thisUser=this.userService.thisUser;
-    this.activatedRoute.paramMap.subscribe(res => {
-    this.request=this.requestService.getRequestOfTheTravel(Number(res.get("travelCode")));
-    this.travel= this.travelService.getTravelsById(Number(res.get("travelCode")));        
-   });
+    // this.thisUser=this.userService.thisUser;
+    // this.activatedRoute.paramMap.subscribe(res => {
+    // this.request=this.requestService.getRequestOfTheTravel(Number(res.get("travelCode")));
+    // this.travel= this.travelService.getTravelsById(Number(res.get("travelCode")));        
+  //  });
    
   }
-  AddUserToTravel():void{
-     this.requestService.AddUserToTravel(this.request,this.thisUser.UserId);
-   }
+  // AddUserToTravel():void{
+  //    this.requestService.AddUserToTravel(this.request,this.thisUser.UserId);
+  //  }
 
 }

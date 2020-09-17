@@ -1,0 +1,151 @@
+ion-avatar{
+    border: 2px solid #fe8100;
+    margin-left: -3vw;
+}
+.driverProfil{
+    border: 2.5px solid #fe8100;
+    width: 23vw;
+    height: 23vw;
+    margin-top: 2vh;
+    margin-left: 69vw;
+    box-shadow: 0px 0px 4px 0px black;
+}
+#driver{
+   // margin-left: 30vw;
+    font-size: large;
+    // position: relative;
+    text-shadow: 0.5px 1px 0.5px black;
+}
+
+.driver{
+    // position: relative;
+    // top: -10vw;
+    text-align: center;
+    margin-left: -28vw;
+    margin-top: -10vh;
+}
+.driver p{
+    font-size: small;
+}
+h4{
+    margin-top: -3vh;
+    text-align: center;
+    
+}
+.driverHeader{
+    position: fixed;
+    background-color: #ededed;
+    border: 2px solid #00000014;
+    width: 96vw;
+    margin-left: 2vw;
+    margin-top: 1vh;
+}
+ion-grid{
+    position: relative;
+    top: 18vh;
+}
+.sT{
+    color: #242a31;
+}
+.sF{
+    color: #BDBDBD;
+}
+ion-content {
+    width: 400px;
+    height: 200px;
+    border: 1px solid #AAA;
+    overflow: hidden;
+  }
+  ion-grid {
+    height: 82vh;
+    margin-right: -50px; /* Maximum width of scrollbar */
+    padding-right: 50px; /* Maximum width of scrollbar */
+    overflow-y: scroll;
+    margin-top: 3vw;
+  }
+  form {
+    width: 90vw;
+    background-color: #ededed;
+    margin-left: 4vw;
+    text-align: center;
+    padding: 0.8vw;
+    position: absolute;
+    z-index: 2;
+    border-radius: 1vw;
+    top: 39vw;
+    box-shadow: 0px 0px 10px 0px #FFE082;
+  
+}
+.next{
+    color: #200e04;
+    width: 8vw;
+    height: 9vw;
+    position: absolute;
+    margin-left: 1vw;
+}
+a {
+    font-size: 7vw;
+    color: black;
+    padding-left: 8vw;
+    font-weight: bold;
+    text-shadow: 0 0 1px black;
+}
+
+form ion-label ion-icon{
+    width: 9vw;
+    height: 9vw;  
+   
+}
+textarea{
+    width: 82vw;
+    height: 33vw;
+}
+ion-button{
+    margin-right: 3vw;
+    margin-left: 2vw;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 0 0 1px #d66d00;
+}
+.block{
+    background-color: #000000a6;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 9vh;
+    left: 0;
+    z-index: 1;
+}
+#close{
+    height: 11%;
+    width: 12%;
+    position: absolute;
+    right: -3vw;
+    top: -3vw;
+}
+ion-item{
+    width: 100vw;
+    font-size: small;
+}
+ion-list{
+    margin-top: 1vw;
+}
+ion-label,span{
+    padding: 1vw;
+    white-space: break-spaces;
+}
+ion-content {
+    width: 400px;
+    height: 200px;
+    border: 1px solid #AAA;
+    overflow: hidden;
+  }
+  ion-grid {
+   
+    margin-right: -50px; /* Maximum width of scrollbar */
+    padding-right: 50px; /* Maximum width of scrollbar */
+    overflow-y: scroll;
+  }

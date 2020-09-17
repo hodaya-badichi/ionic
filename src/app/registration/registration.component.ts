@@ -31,6 +31,7 @@ isDriver:boolean=false;
       ,form.value.UserMail,form.value.UserPassword,form.value.UserPhone,this.isDriver);
      this.userService.register(user);
      localStorage.setItem("user", JSON.stringify(user));
+     localStorage.setItem("isDriver", JSON.stringify(this.isDriver));
      this.router.navigateByUrl("/requests");
    }
    Checked(): void {

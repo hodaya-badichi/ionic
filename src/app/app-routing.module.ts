@@ -11,6 +11,12 @@ const routes: Routes = [
     path: 'requests',
     loadChildren: () => import('./requests/requests.module').then( m => m.RequestsPageModule)
   },
+  {
+    path: 'taxi',
+    loadChildren: () => import('./taxi/taxi.module').then( m => m.TaxiPageModule)
+  },
+ 
+  
   // },
   // {
   //   path: 'taxi',

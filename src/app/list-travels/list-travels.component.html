@@ -1,15 +1,82 @@
+
 <ion-header>
   <ion-toolbar>
+   
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title *ngIf="thisUser">Hello,{{thisUser.UserFirstName}}</ion-title>
+    <ion-title>travels</ion-title> 
+    <ion-tab-button  (click)="GO()">
+      <ion-icon name="reorder-four-outline"></ion-icon>
+    </ion-tab-button>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-<ion-list *ngFor="let item of travelArr">
-  <ion-item routerLink="Travel/{{item.TravleCode}}">{{item.SourceAddress}} {{item.DestinationAddress}}</ion-item>
-</ion-list>
+  <ion-searchbar showCancelButton="never" (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-grid>
 
+  <ion-list *ngFor="let item of travelsArr">
+
+   <ion-item  [disabled]="!isDriver && CheckedOfPlace(item) && item && rCode!=item.TravleCode" 
+   [class.checked]="rCode==item.TravleCode"> 
+  
+    <ion-avatar slot="start"> 
+      <img src="../../assets/profile.png">
+    </ion-avatar> 
+    <ion-label>
+      <h2>{{item.SourceAddress}} >>
+      {{item.DestinationAddress}}</h2>
+      <p><b>{{item.Date | date :  "dd.MM.y" }} </b>
+        {{item.NumOfPassengers-getMaxPlace(item)}}/{{item.NumOfPassengers}}</p> 
+      
+       <ion-label *ngIf="rCode==item.TravleCode">
+         <ion-label class="price">
+         <ion-label class="text" id="priceText">{{item.Price}}</ion-label>
+       <ion-icon name="logo-usd" id="priceIcon"></ion-icon>
+         <ion-label class="text" > {{item.Summarry}}</ion-label>      
+         </ion-label>
+         <a class="text" *ngIf="!isDriver"  (click)="animtion(item)">Interested in traveling? - Click here</a>
+         <span *ngIf="!isDriver" class="divider line one-line">or</span>
+         <a class="text" routerLink="map/{{item.TravleCode}}">Switch to travel route</a>
+         <span *ngIf="isDriver" class="divider line one-line">or</span>
+         <a class="text" *ngIf="isDriver" routerLink="list-drivers/{{item.TravleCode}}">All the passengers</a>
+   
+      </ion-label>
+
+    </ion-label>
+    <ion-note color="primary" size="small" (click)="f(item.TravleCode)" slot="end" >
+      <ion-icon *ngIf="rCode==item.TravleCode" name="chevron-up-outline"></ion-icon>
+      <ion-icon *ngIf="rCode!=item.TravleCode" name="chevron-down-outline"></ion-icon>
+    </ion-note>
+
+  </ion-item>
+
+</ion-list>
+</ion-grid>
+<div class="block" *ngIf="thisTravel!=null"></div>
+<div class="AddRequest" *ngIf="thisTravel!=null">
+  <ion-icon (click)="thisTravel=null" id="close" name="close-circle-sharp"></ion-icon>
+
+  <!-- <form #myform="ngForm" (ngSubmit)="onSubmit()"> -->
+    <!-- <input type="text" class="native-input sc-ion-input-ios" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search> -->
+    <ion-row>
+      <input id="SourceAddress" [ngModelOptions]="{standalone: true}"  type="text" placeholder="Source Address" ngModel required />
+    </ion-row>
+    <ion-row>
+      <input id="DestinationAddress" [ngModelOptions]="{standalone: true}" type="text" placeholder="Destination Address" ngModel required />
+    </ion-row>
+    <ion-row>
+      <input type="number" placeholder="NumOfPassengers"  [(ngModel)]="placesOfUser" min=1 max={{getMaxPlace(thisTravel)}}/>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button class="btn" (click)="AddUserToTravel(thisTravel)" expand="block" size="small" shape="round">Sign Up</ion-button>
+      </ion-col>
+    </ion-row>
+  <!-- </form> -->
+  <ion-item class="link" routerLink="commentsOfDriver/{{thisTravel.UserId}}">who is your driver?</ion-item>
+  <ion-item class="link" (click)="AddGroup(thisTravel.TravleCode)">Join the group</ion-item>
+</div>
 </ion-content>
