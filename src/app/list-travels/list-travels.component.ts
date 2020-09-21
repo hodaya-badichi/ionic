@@ -175,7 +175,6 @@ export class ListTravelsComponent implements OnInit {
       });
       //     });
       document.getElementById("SourceAddress").value=item.SourceAddress;
-   
       document.getElementById("DestinationAddress").value=item.DestinationAddress;
     }, 1000);
     ///Auto
