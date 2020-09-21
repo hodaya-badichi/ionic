@@ -22,7 +22,7 @@ export class MessegeService {
        },
        (e) => 
        {
-         alert('ERR!');
+         console.log('ERR!');
        }
        
      );

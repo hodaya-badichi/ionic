@@ -40,11 +40,11 @@ thisUser:User;
    register(user:User){      
      this.http.post("http://localhost:54736/api/Users/register",user).subscribe(
        (res)=>{
-         alert(res);
+         console.log(res);
        },
        (e) => 
        {
-         alert('ERR!');
+         console.log('ERR!');
        }
        
      );
