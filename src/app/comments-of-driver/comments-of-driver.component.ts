@@ -92,7 +92,7 @@ export class CommentsOfDriverComponent implements OnInit {
   AddOpinion() {
     this.opinionService.getLastOpinionCode().subscribe(
       (opinionCode) => {
-        let summery = document.getElementById("summery").value;
+        let summery = (<HTMLInputElement>document.getElementById("summery")).value;
         //let summery="";
 
         let o: Opinion = new Opinion(opinionCode, this.thisUser.UserId, this.travelCodeO,

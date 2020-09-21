@@ -97,10 +97,10 @@ export class AddRequestComponent implements OnInit {
     await alert.present();
   }
   onSubmit() {
-  this.myform.value.Date=new Date(document.getElementById("DateTimeInput").value);
+  this.myform.value.Date=new Date((<HTMLInputElement>document.getElementById("DateTimeInput")).value);
   console.log(this.myform.value.Date.getFullYear());
   this.myform.value.UserId=JSON.parse(localStorage.getItem("user")).UserId;
-  this.myform.value.NumOfPassengers=(Number)(document.getElementById("NumOfPassengers").value);
+  this.myform.value.NumOfPassengers=(Number)((<HTMLInputElement>document.getElementById("NumOfPassengers")).value);
     // form.value.DestinationAddress=document.getElementById("DestinationAddress").getAttribute("value");
     // form.value.SourceAddress=document.getElementById("SourceAddress").getAttribute("value");
     if(this.myform.value.SourceAddress==""||this.myform.value.DestinationAddress==""){
@@ -129,7 +129,7 @@ export class AddRequestComponent implements OnInit {
       let form=this.myform.value;
       this.travelService.getId().subscribe(
         (travelCode)=>{
-          this.Price=document.getElementById("Price").value;     
+          this.Price= (Number)((<HTMLInputElement>document.getElementById("Price")).value);     
           let travel:Travels=new Travels(travelCode,form.UserId,form.Date,form.SourceAddress,form.DestinationAddress
             ,form.NumOfPassengers,this.Price);
             this.travelService.AddNewTravel(travel);

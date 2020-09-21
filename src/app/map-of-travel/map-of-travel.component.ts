@@ -232,7 +232,7 @@ export class MapOfTravelComponent implements OnInit, AfterViewInit {
     this.messegeService.getMessegeCode().subscribe(
       (messegeCode)=>{
         console.log(messegeCode);
-        let summery=document.getElementById("summery").value;
+        let summery=(<HTMLInputElement>document.getElementById("summery")).value;
          let messege:Messege=new Messege(messegeCode,this.r.TravelCode+"-"+this.r.RequestCode,this.r.UserId,false,summery);      
          this.messegeService.addMessege(messege); 
          this.isMessege=false;      

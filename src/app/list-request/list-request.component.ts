@@ -216,9 +216,9 @@ export class ListRequestComponent implements OnInit, AfterViewInit {
 
       });
     
-    document.getElementById("SourceAddress").value=item.SourceAddress;
-   
- document.getElementById("DestinationAddress").value=item.DestinationAddress;
+      (<HTMLInputElement>document.getElementById("SourceAddress")).value=item.SourceAddress;
+     
+    (<HTMLInputElement>document.getElementById("DestinationAddress")).value=item.DestinationAddress;
       
 
 
